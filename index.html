@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10105d" />
+  <meta name="description" content="Scenius by the Shore — a beach escape by Exploring Lagos. Beach camping, boat rides, movie night, games, bonfire, quad biking, horse riding and more. October 31 – November 1." />
+  <title>Scenius by the Shore | Exploring Lagos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #10105d;
+      --navy-deep: #080936;
+      --purple: #3020a4;
+      --red: #ef2927;
+      --orange: #ff6a1a;
+      --sky: #8ce0f0;
+      --sand: #fff1d4;
+      --cream: #fffaf0;
+      --ink: #17183b;
+      --muted: #62647c;
+      --white: #ffffff;
+      --radius: 24px;
+      --shadow: 0 20px 60px rgba(16,16,93,.13);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "DM Sans", sans-serif; color: var(--ink); background: var(--cream); }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 800; }
+    .eyebrow::before { content: ""; width: 26px; height: 3px; border-radius: 9px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: "Space Grotesk", sans-serif; letter-spacing: -.045em; }
+    h2 { font-size: clamp(2.1rem, 5vw, 4rem); line-height: .99; margin-bottom: 18px; }
+    .section-intro { max-width: 620px; color: var(--muted); line-height: 1.75; font-size: 1.02rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 999px; padding: 15px 23px; font-weight: 800; cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s; }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 28px #0002; }
+    .btn-red { color: white; background: var(--red); }
+    .btn-dark { color: white; background: var(--navy); }
+    .btn-light { color: var(--navy); background: white; }
+    .btn-outline { color: white; border: 1px solid #ffffff88; background: #ffffff12; }
+    .topbar { background: var(--navy-deep); color: white; text-align: center; padding: 10px 16px; font-size: .82rem; font-weight: 700; }
+    .topbar span { color: #ffb45d; }
+    header { position: absolute; z-index: 5; width: 100%; color: white; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: "Space Grotesk", sans-serif; font-weight: 700; line-height: 1.05; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--red); font-size: 1.3rem; }
+    .brand small { display: block; font: 700 .62rem "DM Sans", sans-serif; letter-spacing: .13em; margin-top: 4px; opacity: .8; }
+    .nav-links { display: flex; align-items: center; gap: 26px; font-size: .9rem; font-weight: 700; }
+    .nav-links a:not(.btn):hover { color: #ffbd83; }
+    .nav .btn { padding: 12px 18px; }
+    .menu-toggle { display: none; background: transparent; border: 1px solid #ffffff77; color: white; padding: 9px 12px; border-radius: 12px; }
+    .hero { min-height: 790px; display: flex; align-items: center; color: white; position: relative; overflow: hidden; isolation: isolate; background: var(--navy); }
+    .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(8,9,54,.91) 0%, rgba(8,9,54,.72) 42%, rgba(8,9,54,.18) 100%), url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=88") center/cover; }
+    .hero::after { content: ""; position: absolute; z-index: -1; width: 620px; height: 620px; right: -110px; bottom: -250px; border: 1px solid #ffffff35; border-radius: 50%; box-shadow: 0 0 0 35px #ffffff0b, 0 0 0 75px #ffffff08; }
+    .hero-content { padding: 155px 0 85px; max-width: 720px; }
+    .hero .eyebrow { color: #ffd5a6; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(3.8rem, 9.2vw, 7.7rem); line-height: .83; margin: 0 0 25px; text-transform: uppercase; max-width: 850px; }
+    .hero h1 em { color: #ff4a34; font-style: normal; display: block; text-shadow: 3px 4px 0 #8e151a; }
+    .hero h1 span { color: #ffd08a; display: block; font-size: .49em; letter-spacing: -.025em; margin-top: 17px; }
+    .hero-copy { font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; max-width: 540px; color: #f4f5ff; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 32px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 22px; color: #fff; font-size: .9rem; font-weight: 700; }
+    .hero-meta span { display: flex; align-items: center; gap: 8px; }
+    .hero-meta b { color: #ffc77d; }
+    .ticket-float { position: absolute; right: max(4vw, calc((100vw - 1160px)/2)); bottom: 90px; width: 190px; padding: 19px; background: var(--red); border-radius: 24px; transform: rotate(5deg); box-shadow: 0 20px 40px #0004; }
+    .ticket-float small { display: block; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .ticket-float strong { display: block; font: 700 3.1rem "Space Grotesk", sans-serif; line-height: 1; margin: 5px 0; }
+    .ticket-float span { font-size: .75rem; font-weight: 700; }
+    .ticker { overflow: hidden; background: var(--orange); color: white; padding: 15px 0; font: 700 .95rem "Space Grotesk", sans-serif; letter-spacing: .08em; }
+    .ticker-track { display: flex; justify-content: space-around; gap: 32px; white-space: nowrap; }
+    .ticker span::after { content: " ✦ "; margin-left: 30px; color: #ffe6b7; }
+    section { padding: 100px 0; }
+    .section-head { margin-bottom: 42px; }
+    .section-head.center { text-align: center; }
+    .section-head.center .eyebrow { justify-content: center; }
+    .section-head.center .section-intro { margin-inline: auto; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 65px; align-items: center; }
+    .about-visual { position: relative; min-height: 500px; }
+    .about-main { position: absolute; inset: 0 70px 45px 0; border-radius: 30px; overflow: hidden; box-shadow: var(--shadow); }
+    .about-main img { height: 100%; }
+    .about-sticker { position: absolute; right: 0; bottom: 0; width: 205px; padding: 25px; border-radius: 24px; background: var(--sand); color: var(--navy); transform: rotate(4deg); box-shadow: var(--shadow); }
+    .about-sticker strong { display: block; font: 700 2rem "Space Grotesk", sans-serif; line-height: 1; }
+    .about-sticker span { display: block; font-size: .8rem; line-height: 1.45; margin-top: 8px; font-weight: 700; }
+    .about-copy p { color: var(--muted); line-height: 1.8; }
+    .check-list { list-style: none; padding: 0; display: grid; gap: 13px; margin: 25px 0 30px; }
+    .check-list li { display: flex; gap: 11px; align-items: flex-start; font-weight: 700; }
+    .check { flex: 0 0 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: #e0f8e9; color: #147a47; font-size: .8rem; }
+    .activities { background: #f0f8fb; }
+    .activity-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .activity-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 28px #10105d0b; transition: transform .2s; }
+    .activity-card:hover { transform: translateY(-5px); }
+    .activity-card img { height: 190px; }
+    .activity-body { padding: 18px; }
+    .activity-body h3 { font-size: 1.12rem; margin-bottom: 7px; }
+    .activity-body p { font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: 0; }
+    .activity-num { color: var(--orange); font-size: .75rem; letter-spacing: .12em; font-weight: 800; margin-bottom: 8px; display: block; }
+    .schedule-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 55px; align-items: start; }
+    .schedule-note { padding: 28px; background: var(--navy); color: white; border-radius: 24px; position: sticky; top: 25px; }
+    .schedule-note h3 { font-size: 1.6rem; }
+    .schedule-note p { color: #d7d8ff; line-height: 1.7; }
+    .schedule-note .price { font: 700 3rem "Space Grotesk", sans-serif; color: #ffbd83; margin: 15px 0 4px; }
+    .schedule-note small { color: #e2e3ff; }
+    .timeline { border-left: 2px solid #e3ddff; margin-left: 10px; }
+    .timeline-item { position: relative; padding: 0 0 30px 28px; }
+    .timeline-item::before { content: ""; position: absolute; left: -8px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--orange); border: 3px solid var(--cream); }
+    .timeline-item small { color: var(--purple); font-weight: 800; text-transform: uppercase; letter-spacing: .09em; font-size: .73rem; }
+    .timeline-item h3 { margin: 5px 0 7px; font-size: 1.35rem; }
+    .timeline-item p { margin: 0; color: var(--muted); line-height: 1.65; }
+    .gallery { background: var(--sand); }
+    .gallery-grid { display: grid; grid-template-columns: 1.15fr .85fr .85fr; grid-template-rows: 230px 230px; gap: 14px; }
+    .gallery-grid figure { margin: 0; border-radius: 20px; overflow: hidden; position: relative; }
+    .gallery-grid figure:first-child { grid-row: span 2; }
+    .gallery-grid img { height: 100%; transition: transform .5s; }
+    .gallery-grid figure:hover img { transform: scale(1.05); }
+    .gallery-grid figcaption { position: absolute; inset: auto 0 0; padding: 35px 18px 18px; color: white; font-weight: 800; background: linear-gradient(transparent, #000a); }
+    .testimonials { background: white; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .quote-card { padding: 27px; border: 1px solid #e9e8f5; border-radius: 22px; background: #fff; }
+    .stars { color: #ff9c24; letter-spacing: .12em; margin-bottom: 15px; }
+    .quote-card blockquote { margin: 0 0 22px; line-height: 1.8; color: #41425f; }
+    .quote-person { display: flex; align-items: center; gap: 12px; }
+    .avatar { width: 42px; height: 42px; border-radius: 50%; background: #e4e1ff; display: grid; place-items: center; color: var(--navy); font-weight: 800; }
+    .quote-person strong { display: block; font-size: .9rem; }
+    .quote-person small { color: var(--muted); font-size: .77rem; }
+    .testimonial-notice { margin-top: 20px; color: var(--muted); font-size: .83rem; text-align: center; }
+    .ticket-section { color: white; background: var(--navy); position: relative; overflow: hidden; }
+    .ticket-section::before { content: ""; position: absolute; width: 520px; height: 520px; border-radius: 50%; border: 1px solid #ffffff20; right: -160px; top: -170px; box-shadow: 0 0 0 40px #ffffff06, 0 0 0 80px #ffffff06; }
+    .ticket-layout { display: grid; grid-template-columns: 1fr .8fr; gap: 60px; align-items: center; position: relative; }
+    .ticket-section .eyebrow { color: #ffbd83; }
+    .ticket-section h2 { max-width: 660px; }
+    .ticket-section .section-intro { color: #d8d9f3; }
+    .ticket-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 28px; }
+    .ticket-benefits span { padding: 13px; border: 1px solid #ffffff25; border-radius: 14px; font-size: .88rem; font-weight: 700; }
+    .booking-card { background: white; color: var(--ink); padding: 30px; border-radius: 26px; box-shadow: 0 24px 70px #0004; }
+    .booking-card .tag { display: inline-block; background: #ffe8dd; color: #b92b1d; padding: 7px 10px; border-radius: 7px; text-transform: uppercase; font-size: .7rem; font-weight: 800; letter-spacing: .08em; }
+    .booking-card h3 { font-size: 1.6rem; margin: 15px 0 5px; }
+    .booking-price { font: 700 3.4rem "Space Grotesk", sans-serif; color: var(--red); letter-spacing: -.06em; }
+    .booking-card p { color: var(--muted); line-height: 1.6; font-size: .9rem; }
+    .booking-card .btn { width: 100%; margin-top: 10px; }
+    .booking-card .fineprint { font-size: .75rem; margin: 12px 0 0; text-align: center; }
+    .faq-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 60px; }
+    .faq-list details { padding: 20px 0; border-bottom: 1px solid #e5e4ee; }
+    .faq-list summary { cursor: pointer; list-style: none; font-weight: 800; display: flex; justify-content: space-between; gap: 20px; }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: "+"; color: var(--red); font-size: 1.4rem; line-height: 1; }
+    .faq-list details[open] summary::after { content: "−"; }
+    .faq-list details p { color: var(--muted); line-height: 1.7; margin: 14px 0 0; }
+    .final-cta { padding: 65px 0; text-align: center; background: linear-gradient(110deg, #ff6a1a, #ef2927); color: white; }
+    .final-cta h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 12px; }
+    .final-cta p { color: #fff1e7; }
+    footer { background: #080936; color: white; padding: 42px 0 25px; }
+    .footer-top { display: flex; justify-content: space-between; gap: 30px; align-items: center; padding-bottom: 30px; border-bottom: 1px solid #ffffff22; }
+    .footer-top p { margin: 8px 0 0; color: #c7c8e6; font-size: .88rem; }
+    .socials { display: flex; flex-wrap: wrap; gap: 10px; }
+    .socials a { border: 1px solid #ffffff38; border-radius: 99px; padding: 10px 14px; font-size: .8rem; font-weight: 700; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 20px; color: #aeb0d3; font-size: .78rem; }
+    .sticky-mobile { display: none; }
+    @media (max-width: 900px) {
+      .nav-links { gap: 15px; }
+      .nav-links a:not(.btn) { display: none; }
+      .ticket-float { right: 28px; bottom: 30px; transform: scale(.86) rotate(5deg); transform-origin: bottom right; }
+      .activity-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid, .schedule-grid, .ticket-layout, .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+      .schedule-note { position: static; }
+      .gallery-grid { grid-template-rows: 200px 200px; }
+      .ticket-layout { gap: 30px; }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      section { padding: 70px 0; }
+      .topbar { font-size: .72rem; }
+      .nav { padding: 16px 0; }
+      .nav-links { gap: 8px; }
+      .nav .btn { display: none; }
+      .menu-toggle { display: block; }
+      .nav-links.open { position: absolute; top: 74px; left: 14px; right: 14px; background: var(--navy-deep); padding: 18px; border-radius: 18px; display: flex; flex-direction: column; align-items: stretch; }
+      .nav-links.open a:not(.btn) { display: block; padding: 8px; }
+      .nav-links.open .btn { display: inline-flex; }
+      .hero { min-height: 780px; align-items: flex-start; }
+      .hero::before { background: linear-gradient(90deg, rgba(8,9,54,.87), rgba(8,9,54,.42)), url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85") 58% center/cover; }
+      .hero-content { padding: 140px 0 210px; }
+      .hero h1 { font-size: clamp(3.6rem, 17vw, 5.5rem); }
+      .hero-copy { max-width: 400px; }
+      .hero-meta { gap: 12px; flex-direction: column; }
+      .ticket-float { bottom: 25px; right: 17px; width: 155px; padding: 15px; }
+      .ticket-float strong { font-size: 2.5rem; }
+      .ticker-track { justify-content: flex-start; padding-left: 18px; }
+      .about-visual { min-height: 390px; }
+      .about-main { inset: 0 38px 35px 0; }
+      .about-sticker { width: 165px; padding: 18px; }
+      .about-sticker strong { font-size: 1.6rem; }
+      .activity-grid { gap: 12px; }
+      .activity-card img { height: 145px; }
+      .activity-body { padding: 14px; }
+      .activity-body h3 { font-size: 1rem; }
+      .activity-body p { font-size: .81rem; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 155px 155px; gap: 9px; }
+      .gallery-grid figure:first-child { grid-column: span 2; grid-row: auto; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .ticket-benefits { grid-template-columns: 1fr 1fr; }
+      .booking-card { padding: 24px; }
+      .footer-top, .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .sticky-mobile { display: flex; position: fixed; z-index: 20; bottom: 10px; left: 12px; right: 12px; padding: 8px; border-radius: 999px; background: #fff; box-shadow: 0 8px 35px #0003; align-items: center; justify-content: space-between; gap: 10px; }
+      .sticky-mobile strong { font: 700 1.15rem "Space Grotesk", sans-serif; color: var(--navy); padding-left: 12px; }
+      .sticky-mobile .btn { padding: 12px 17px; font-size: .84rem; }
+      body { padding-bottom: 72px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">THE BEACH IS CALLING 🌴 <span>31 OCT – 1 NOV</span> · LIMITED TICKETS</div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Exploring Lagos home">
+        <span class="brand-mark">✦</span>
+        <span>EXPLORING LAGOS<small>GO OUT. LIVE MORE.</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#experience">The experience</a>
+        <a href="#activities">Activities</a>
+        <a href="#details">Event details</a>
+        <a href="#faq">FAQs</a>
+        <a class="btn btn-red" href="#tickets">Get your ticket ↗</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero-content">
+          <div class="eyebrow">Exploring Lagos presents · The beach edition</div>
+          <h1><em>Scenius</em><span>by the shore</span></h1>
+          <p class="hero-copy">Trade the usual weekend for ocean air, golden sunsets, campfire stories and a crew of people ready to make memories. One beach. One unforgettable escape.</p>
+          <div class="hero-actions">
+            <a class="btn btn-red" href="#tickets">Secure my ticket <span>↗</span></a>
+            <a class="btn btn-outline" href="#activities">Explore the experience ↓</a>
+          </div>
+          <div class="hero-meta">
+            <span>📅 <b>31 October – 1 November</b></span>
+            <span>📍 Seaview Beach</span>
+            <span>🎟️ From <b>₦35,000</b></span>
+          </div>
+        </div>
+      </div>
+      <div class="ticket-float"><small>Ticket fee</small><strong>₦35K</strong><span>YOUR BEACH ESCAPE AWAITS</span></div>
+    </section>
+
+    <div class="ticker"><div class="wrap ticker-track"><span>BEACH CAMPING</span><span>BOAT RIDES</span><span>BONFIRE NIGHTS</span><span>QUAD BIKING</span><span>GOOD PEOPLE</span></div></div>
+
+    <section id="experience">
+      <div class="wrap about-grid">
+        <div class="about-visual">
+          <div class="about-main"><img loading="lazy" src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1100&q=85" alt="Friends enjoying a sunny beach day"></div>
+          <div class="about-sticker"><strong>48 hours.</strong><span>Fresh air, new connections and stories worth telling.</span></div>
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow">Not just another outing</div>
+          <h2>Clock out.<br>Show up.<br><span style="color:var(--red)">Feel alive.</span></h2>
+          <p>Scenius by the Shore is your invitation to step away from the routine and get out into the world. Come for the beach, stay for the activities, the conversations, the laughter and the people you might never have met otherwise.</p>
+          <p>Whether you're coming with your friends or arriving solo, there’s room to connect, try something new and enjoy a different side of Lagos.</p>
+          <ul class="check-list">
+            <li><span class="check">✓</span><span>Outdoor fun and beachside relaxation</span></li>
+            <li><span class="check">✓</span><span>Games, adventure and shared experiences</span></li>
+            <li><span class="check">✓</span><span>Networking with an open-minded community</span></li>
+          </ul>
+          <a class="btn btn-dark" href="#tickets">I’m in — let’s go ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="activities" id="activities">
+      <div class="wrap">
+        <div class="section-head center">
+          <div class="eyebrow">Make the weekend count</div>
+          <h2>There’s more than<br>one way to have fun.</h2>
+          <p class="section-intro">From the first splash to the last story around the fire, there’s something to pull you out of your comfort zone and into the moment.</p>
+        </div>
+        <div class="activity-grid">
+          <article class="activity-card"><img loading="lazy" src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?auto=format&fit=crop&w=700&q=80" alt="Tent set up outdoors"><div class="activity-body"><span class="activity-num">01 / STAY OUTSIDE</span><h3>Beach Camping</h3><p>Switch the usual room for an outdoor escape and the sound of the waves.</p></div></article>
+          <article class="activity-card"><img loading="lazy" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=700&q=80" alt="Boat on clear blue water"><div class="activity-body"><span class="activity-num">02 / ON THE WATER</span><h3>Boat Ride</h3><p>Get out on the water and take in the coast from a different angle.</p></div></article>
+          <article class="activity-card"><img loading="lazy" src="https://images.unsplash.com/photo-1475738198235-4b30fc3b4f16?auto=format&fit=crop&w=700&q=80" alt="Warm fire glowing outdoors"><div class="activity-body"><span class="activity-num">03 / AFTER DARK</span><h3>Bonfire & Movie Night</h3><p>Easy conversations, movie moments and a warm glow after sunset.</p></div></article>
+          <article class="activity-card"><img loading="lazy" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=700&q=80" alt="Friends smiling together"><div class="activity-body"><span class="activity-num">04 / MEET YOUR PEOPLE</span><h3>Games & Networking</h3><p>Break the ice, find your crew and leave with new connections.</p></div></article>
+          <article class="activity-card"><img loading="lazy" src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80" alt="Adventure vehicle on a trail"><div class="activity-body"><span class="activity-num">05 / GET MOVING</span><h3>Quad Biking</h3><p>Add a little adrenaline to your weekend with an off-road adventure.</p></div></article>
+          <article class="activity-card"><img loading="lazy" src="https://images.unsplash.com/photo-1534307677025-9f0b4e5a3c89?auto=format&fit=crop&w=700&q=80" alt="Horse in an outdoor setting"><div class="activity-body"><span class="activity-num">06 / TRY SOMETHING NEW</span><h3>Horse Riding</h3><p>Take in a slower-paced adventure and enjoy a memorable new experience.</p></div></article>
+          <article class="activity-card"><img loading="lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80" alt="Beautiful golden-hour outdoor scenery"><div class="activity-body"><span class="activity-num">07 / CHASE THE GLOW</span><h3>Sunset Moments</h3><p>Golden-hour photos, ocean breeze and a backdrop made for memories.</p></div></article>
+          <article class="activity-card"><img loading="lazy" src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=700&q=80" alt="Celebration with friends"><div class="activity-body"><span class="activity-num">08 / GOOD VIBRATIONS</span><h3>Refreshments & Chill</h3><p>Refuel, relax and enjoy the social side of the Scenius experience.</p></div></article>
+        </div>
+        <p style="text-align:center;color:var(--muted);font-size:.82rem;margin:25px 0 0">Activities are subject to weather, availability and event operations. Confirm inclusions with the organiser before publishing.</p>
+      </div>
+    </section>
+
+    <section id="details">
+      <div class="wrap schedule-grid">
+        <div>
+          <div class="section-head">
+            <div class="eyebrow">Your weekend, sorted</div>
+            <h2>Two days.<br>A whole new story.</h2>
+            <p class="section-intro">Make room for a proper break. Here’s the event information to help you plan your Scenius by the Shore escape.</p>
+          </div>
+          <div class="schedule-note">
+            <div class="eyebrow">Save your spot</div>
+            <h3>Scenius by the Shore</h3>
+            <p>Presented by Exploring Lagos</p>
+            <div class="price">₦35,000</div>
+            <small>Ticket fee shown on the event flyer</small>
+            <hr style="border:0;border-top:1px solid #ffffff30;margin:22px 0">
+            <p>📍 <strong>Seaview Beach</strong><br>📅 <strong>31 October – 1 November</strong></p>
+            <a class="btn btn-red" style="width:100%" href="#tickets">Reserve my place ↗</a>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item"><small>Day 1 · Arrival</small><h3>Check in & settle in</h3><p>Arrive at the venue, meet the crew, get comfortable and ease into the beach atmosphere.</p></div>
+          <div class="timeline-item"><small>Day 1 · Adventure</small><h3>Activities, games & exploration</h3><p>Get involved in the planned beach activities, games and opportunities to meet other guests.</p></div>
+          <div class="timeline-item"><small>Day 1 · After dark</small><h3>Bonfire, movie night & conversations</h3><p>Wind down with a relaxed evening, shared stories and a memorable night by the shore.</p></div>
+          <div class="timeline-item"><small>Day 2 · One more memory</small><h3>Beach time & closing moments</h3><p>Enjoy the remaining activities, take your photos and wrap up the getaway with new memories.</p></div>
+          <p style="color:var(--muted);font-size:.82rem;line-height:1.6">This is a suggested experience flow, not a confirmed timetable. Add official arrival times, activity slots, transport arrangements and checkout time before launch.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Picture the feeling</div>
+          <h2>Good views.<br>Better memories.</h2>
+          <p class="section-intro">Think ocean breeze, sandy toes, action-packed moments and that feeling of being exactly where you need to be.</p>
+        </div>
+        <div class="gallery-grid">
+          <figure><img loading="lazy" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1100&q=85" alt="Turquoise ocean and sandy beach"><figcaption>Your beach reset starts here</figcaption></figure>
+          <figure><img loading="lazy" src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=700&q=80" alt="Sunny coastal scenery"><figcaption>Sunshine state of mind</figcaption></figure>
+          <figure><img loading="lazy" src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?auto=format&fit=crop&w=700&q=80" alt="Camping tent in nature"><figcaption>Camp out, tune in</figcaption></figure>
+          <figure><img loading="lazy" src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=700&q=80" alt="People celebrating together"><figcaption>Come for the memories</figcaption></figure>
+          <figure><img loading="lazy" src="https://images.unsplash.com/photo-1475738198235-4b30fc3b4f16?auto=format&fit=crop&w=700&q=80" alt="Outdoor fire at night"><figcaption>Stories after sunset</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="wrap">
+        <div class="section-head center">
+          <div class="eyebrow">The community says it best</div>
+          <h2>Real people. Real memories.</h2>
+          <p class="section-intro">The best part of going out is what you bring back: the stories, the friendships and the moments you didn’t plan for.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="quote-card"><div class="stars">★★★★★</div><blockquote>“[Insert a real review from a guest who attended a previous Exploring Lagos tour. Mention what they enjoyed most.]”</blockquote><div class="quote-person"><div class="avatar">G1</div><div><strong>[Guest name]</strong><small>Previous tour guest</small></div></div></article>
+          <article class="quote-card"><div class="stars">★★★★★</div><blockquote>“[Insert a second verified guest testimonial about the activities, organisation or people they met.]”</blockquote><div class="quote-person"><div class="avatar">G2</div><div><strong>[Guest name]</strong><small>Previous tour guest</small></div></div></article>
+          <article class="quote-card"><div class="stars">★★★★★</div><blockquote>“[Insert a third genuine review. Keep the guest’s wording accurate and get permission to publish it.]”</blockquote><div class="quote-person"><div class="avatar">G3</div><div><strong>[Guest name]</strong><small>Previous tour guest</small></div></div></article>
+        </div>
+        <p class="testimonial-notice">Before launch: replace these clearly marked placeholders with genuine reviews and approved guest names/photos. Never publish invented testimonials.</p>
+      </div>
+    </section>
+
+    <section class="ticket-section" id="tickets">
+      <div class="wrap ticket-layout">
+        <div>
+          <div class="eyebrow">Your next story starts here</div>
+          <h2>Don’t just watch the weekend happen. Be part of it.</h2>
+          <p class="section-intro">Bring your friends or come ready to meet new ones. Secure your ticket for Scenius by the Shore and get ready to experience the beach differently.</p>
+          <div class="ticket-benefits">
+            <span>🌊 Beachside escape</span><span>🔥 Bonfire & movie night</span>
+            <span>🚤 Adventure activities</span><span>🤝 Networking & new friends</span>
+          </div>
+        </div>
+        <div class="booking-card">
+          <span class="tag">Event ticket</span>
+          <h3>Scenius by the Shore</h3>
+          <div class="booking-price">₦35,000</div>
+          <p>31 October – 1 November · Seaview Beach</p>
+          <p>Ready to book? Contact the organiser to confirm availability, payment instructions, what your ticket includes and your booking confirmation.</p>
+          <a class="btn btn-red" href="https://wa.me/2348077234698?text=Hi%20Kheeyz%2C%20I%27d%20like%20to%20book%20a%20ticket%20for%20Scenius%20by%20the%20Shore." target="_blank" rel="noopener">Book on WhatsApp ↗</a>
+          <p class="fineprint">No payment is collected on this page. Please confirm official payment details directly with the organiser.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap faq-grid">
+        <div class="section-head">
+          <div class="eyebrow">Need to know</div>
+          <h2>Quick answers<br>before you go.</h2>
+          <p class="section-intro">Have a question that isn’t covered here? Message the event contact and get the details before making payment.</p>
+          <a class="btn btn-dark" href="https://wa.me/2348077234698?text=Hi%20Kheeyz%2C%20I%20have%20a%20question%20about%20Scenius%20by%20the%20Shore." target="_blank" rel="noopener">Ask the organiser ↗</a>
+        </div>
+        <div class="faq-list">
+          <details><summary>When and where is the event?</summary><p>The event is advertised for 31 October – 1 November at Seaview Beach. Confirm the exact meeting point, arrival time and directions with the organiser.</p></details>
+          <details><summary>How much is a ticket?</summary><p>The flyer lists the ticket fee as ₦35,000. Confirm whether any processing fees apply and what is included before paying.</p></details>
+          <details><summary>What activities are planned?</summary><p>The flyer lists beach camping, boat ride, movie night, games, bonfire, quad biking, horse riding, refreshments and networking. Confirm which activities are included in the ticket and whether any have separate charges.</p></details>
+          <details><summary>Can I come alone?</summary><p>Absolutely—you can use the event to meet people and make new connections. If you have questions about group arrangements or safety, contact the organiser before booking.</p></details>
+          <details><summary>Is transport or accommodation included?</summary><p>This is not specified on the supplied flyer. Ask the organiser about transport, camping equipment, meals, accommodation, facilities and what to bring.</p></details>
+          <details><summary>How do I secure my ticket?</summary><p>Tap any “Book on WhatsApp” or “Get your ticket” button to contact Kheeyz on WhatsApp at 08077234698. Confirm availability and official payment details directly with the organiser.</p></details>
+          <details><summary>What if the weather changes?</summary><p>Ask the organiser about weather plans, activity substitutions, postponement and refund or transfer policies before purchasing.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="wrap">
+        <h2>Your people. Your weekend. Your story.</h2>
+        <p>Scenius by the Shore · 31 October – 1 November · Seaview Beach</p>
+        <a class="btn btn-light" href="#tickets">Secure your ₦35K ticket ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="brand"><span class="brand-mark">✦</span><span>EXPLORING LAGOS<small>GO OUT. LIVE MORE.</small><p>Discover more. Experience Lagos.</p></span></div>
+        <div class="socials">
+          <a href="https://www.instagram.com/exploringlagos/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok ↗</a>
+          <a href="https://x.com/" target="_blank" rel="noopener">X ↗</a>
+          <a href="https://wa.me/2348077234698" target="_blank" rel="noopener">WhatsApp ↗</a>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Exploring Lagos. All rights reserved.</span><span>Event details are subject to confirmation by the organiser.</span></div>
+    </div>
+  </footer>
+
+  <div class="sticky-mobile"><strong>₦35,000 <small style="font:500 .65rem 'DM Sans',sans-serif;display:block;color:#62647c">PER TICKET</small></strong><a class="btn btn-red" href="#tickets">Book ticket ↗</a></div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.textContent = open ? '✕' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
